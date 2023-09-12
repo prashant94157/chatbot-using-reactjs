@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a8c0ff;
+  background: -webkit-linear-gradient(to right, #3f2b96, #a8c0ff);
+  background: linear-gradient(to right, #3f2b96, #a8c0ff);
+}
+
+.react-chatbot-kit-chat-container {
+  width: 400px;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  margin: 0;
+  background-color: #d8d8d8;
+  color: black;
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+  display: none;
+}
+
+.react-chatbot-kit-chat-bot-avatar-container {
+  width: 50px;
+  height: 50px;
+  background-image: url('./assests/telemarketer.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.react-chatbot-kit-chat-bot-avatar-letter {
+  display: none;
+}
+
+/* .react-chatbot-kit-chat-input-form {
+  display: none;
+} */
+
+.react-chatbot-kit-chat-message-container {
+  overflow: auto;
+  padding-top: 15px;
+}
+
+/*  */
+.react-chatbot-kit-user-avatar-icon {
+  /* background-color: ; */
+  display: none;
+}
+
+.react-chatbot-kit-user-avatar-container {
+  width: 50px;
+  height: 50px;
+  background-image: url('./assests/user.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #89cff0;
+}
+
+.react-chatbot-kit-user-chat-message {
+  background-color: #89cff0;
+}
+
+.react-chatbot-kit-user-chat-message-arrow,
+.react-chatbot-kit-chat-header,
+.react-chatbot-kit-chat-input-form {
+  display: none;
+}

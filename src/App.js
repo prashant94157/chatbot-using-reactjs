@@ -1,8 +1,14 @@
 import React from 'react';
-import './App.css'
+import 'react-chatbot-kit/build/main.css';
+import './App.css';
+import Bot from './components/Bot';
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div className='app'>
+      <Bot />
+    </div>
+  );
 };
 
 export default App;
