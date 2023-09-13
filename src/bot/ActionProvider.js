@@ -1,20 +1,67 @@
 import React from 'react';
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
-  const handleHello = () => {
-    const botMessage = createChatBotMessage('Hello, Nice to meet you!');
+  const startBtnHandler = () => {
+    const botMessage = createChatBotMessage(
+      `Hello, Welcome to student info system!`,
+      {
+        widget: 'gotIt',
+      }
+    );
+    removeAllMessages(botMessage);
+  };
 
+  const gotItHandler = () => {
+    const userMessage = createChatBotMessage(`Got it!`);
+
+    removeAllMessages(userMessage);
+    pickSlotHandler();
+  };
+
+  const pickSlotHandler = () => {
+    const botMessage = createChatBotMessage('Pick a Date', {
+      widget: 'pickSlot',
+      delay: 3000,
+    });
+
+    addNewMessage(botMessage);
+  };
+
+  const bookSlotHandler = (date, time) => {
+    const botMessage = createChatBotMessage('Booked slot successfully!!!', {
+      widget: 'bookedSlot',
+    });
+    console.log(date, time);
     setState((prev) => ({
       ...prev,
-      messages: [...prev.messages, botMessage],
+      date,
+      time,
+    }));
+    removeAllMessages(botMessage);
+  };
+
+  const addNewMessage = (message) => {
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
     }));
   };
+
+  const removeAllMessages = (message) => {
+    setState((prev) => ({
+      ...prev,
+      messages: [message],
+    }));
+  };
+
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           actions: {
-            handleHello,
+            startBtnHandler,
+            gotItHandler,
+            bookSlotHandler,
           },
         });
       })}
