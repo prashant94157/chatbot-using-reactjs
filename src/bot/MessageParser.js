@@ -1,10 +1,7 @@
 import React from 'react';
 
 const MessageParser = ({ children, actions }) => {
-  const parse = (message) => {
-    // if(message.includes)
-    actions.startBtnHandler();
-  };
+  const parse = (message) => {};
 
   return (
     <div>

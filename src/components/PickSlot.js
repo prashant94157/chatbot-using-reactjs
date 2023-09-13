@@ -6,16 +6,15 @@ const PickSlot = (props) => {
   const dispatch = useDispatch();
 
   const [dateList, setDateList] = useState([
-    { date: 1, day: 'Thurs', show: true },
-    { date: 2, day: 'Thurs', show: true },
-    { date: 3, day: 'Thurs', show: true },
-    { date: 4, day: 'Thurs', show: false },
-    { date: 5, day: 'Thurs', show: false },
-    { date: 6, day: 'Thurs', show: false },
-    { date: 7, day: 'Thurs', show: false },
-    { date: 8, day: 'Thurs', show: false },
-    { date: 9, day: 'Thurs', show: false },
-    { date: 10, day: 'Thurs', show: false },
+    { date: '1 May', day: 'Thu', show: true },
+    { date: '2 May', day: 'Fri', show: true },
+    { date: '3 May', day: 'Sat', show: true },
+    { date: '4 May', day: 'Sun', show: false },
+    { date: '5 May', day: 'Mon', show: false },
+    { date: '6 May', day: 'Tue', show: false },
+    { date: '7 May', day: 'Wed', show: false },
+    { date: '8 May', day: 'Thu', show: false },
+    { date: '9 May', day: 'Fri', show: false },
   ]);
 
   const morningTime = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM'];
