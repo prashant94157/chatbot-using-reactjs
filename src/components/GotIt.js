@@ -1,4 +1,5 @@
 import React from 'react';
+
 const GotIt = (props) => {
   const startBtnHandler = () => {
     props.actions.gotItHandler();

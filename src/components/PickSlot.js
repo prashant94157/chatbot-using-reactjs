@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveUserData } from '../actions/userDataActions';
 
 const PickSlot = (props) => {
+  const dispatch = useDispatch();
+
   const [dateList, setDateList] = useState([
     { date: 1, day: 'Thurs', show: true },
     { date: 2, day: 'Thurs', show: true },
@@ -65,10 +69,13 @@ const PickSlot = (props) => {
 
   const handleSubmit = () => {
     if (date !== -1 && (time1 !== -1 || time2 !== -1)) {
-      props.actions.bookSlotHandler(
-        dateList[date],
-        time1 !== -1 ? morningTime[time1] : noonTime[time2]
+      dispatch(
+        saveUserData(
+          dateList[date],
+          time1 !== -1 ? morningTime[time1] : noonTime[time2]
+        )
       );
+      props.actions.bookSlotHandler();
     }
   };
 

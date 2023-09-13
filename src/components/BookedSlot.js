@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const BookedSlot = (props) => {
-  console.log(props);
+const BookedSlot = () => {
+  const userData = useSelector((state) => state.userData);
+  const { date, time } = userData;
+
   return (
     <div className='show-date'>
-      <div>{props.state.date.date}</div>
-      <div>{props.state.date.day}</div>
-      <div>{props.state.time}</div>
+      <div>{date.date}</div>
+      <div>{date.day}</div>
+      <div>{time}</div>
     </div>
   );
 };

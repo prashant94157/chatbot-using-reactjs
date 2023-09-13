@@ -8,13 +8,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         widget: 'gotIt',
       }
     );
+
     removeAllMessages(botMessage);
   };
 
   const gotItHandler = () => {
-    const userMessage = createChatBotMessage(`Got it!`);
+    const botMessage = createChatBotMessage(`Got it!`);
 
-    removeAllMessages(userMessage);
+    removeAllMessages(botMessage);
     pickSlotHandler();
   };
 
@@ -27,16 +28,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     addNewMessage(botMessage);
   };
 
-  const bookSlotHandler = (date, time) => {
+  const bookSlotHandler = () => {
     const botMessage = createChatBotMessage('Booked slot successfully!!!', {
       widget: 'bookedSlot',
     });
-    console.log(date, time);
-    setState((prev) => ({
-      ...prev,
-      date,
-      time,
-    }));
+
     removeAllMessages(botMessage);
   };
 
