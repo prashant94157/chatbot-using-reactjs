@@ -1,2 +1,3 @@
-export const USER_DATA = 'USER_DATA';
-export const USER_MESSAGE = 'USER_MESSAGE';
+export const USER_SLOT = 'USER_SLOT';
+export const USER_AGE = 'USER_AGE';
+export const USER_NAME = 'USER_NAME';

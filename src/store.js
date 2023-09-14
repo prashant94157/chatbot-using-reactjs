@@ -5,10 +5,16 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { userDataReducers } from './reducers/userDataReducers';
+import {
+  userAgeReducers,
+  userNameReducers,
+  userSlotReducers,
+} from './reducers/userDataReducers';
 
 const reducer = combineReducers({
-  userData: userDataReducers,
+  userName: userNameReducers,
+  userAge: userAgeReducers,
+  userSlot: userSlotReducers,
 });
 
 const initialState = {};

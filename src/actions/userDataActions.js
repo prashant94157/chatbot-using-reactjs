@@ -1,10 +1,24 @@
-import { USER_DATA } from '../constants';
+import { USER_AGE, USER_NAME, USER_SLOT } from '../constants';
 
-const saveUserData = (date, time) => (dispatch) => {
+const saveSlotDetails = (date, time) => (dispatch) => {
   dispatch({
-    type: USER_DATA,
+    type: USER_SLOT,
     payload: { date, time },
   });
 };
 
-export { saveUserData };
+const saveNameDetail = (name) => (dispatch) => {
+  dispatch({
+    type: USER_NAME,
+    payload: { name },
+  });
+};
+
+const saveAgeDetail = (age) => (dispatch) => {
+  dispatch({
+    type: USER_AGE,
+    payload: { age },
+  });
+};
+
+export { saveSlotDetails, saveAgeDetail, saveNameDetail };

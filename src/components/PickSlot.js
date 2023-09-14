@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { saveUserData } from '../actions/userDataActions';
+import { useDispatch } from 'react-redux';
+import { saveSlotDetails } from '../actions/userDataActions';
 
 const PickSlot = (props) => {
   const dispatch = useDispatch();
@@ -68,13 +68,12 @@ const PickSlot = (props) => {
 
   const handleSubmit = () => {
     if (date !== -1 && (time1 !== -1 || time2 !== -1)) {
-      dispatch(
-        saveUserData(
-          dateList[date],
-          time1 !== -1 ? morningTime[time1] : noonTime[time2]
-        )
-      );
-      props.actions.bookSlotHandler();
+      const slotDate = dateList[date],
+        slotTime = time1 !== -1 ? morningTime[time1] : noonTime[time2];
+
+      dispatch(saveSlotDetails(slotDate, slotTime));
+
+      props.actions.bookSlotHandler(slotDate, slotTime);
     }
   };
 
@@ -98,8 +97,8 @@ const PickSlot = (props) => {
             key={index}
             onClick={() => clickDateHandler(index)}
           >
-            <div>{i.date}</div>
-            <div>{i.day}</div>
+            <div className='date'>{i.date}</div>
+            <div className='day'>{i.day}</div>
           </div>
         ))}
 
@@ -125,7 +124,9 @@ const PickSlot = (props) => {
               className={`box box-day ${time1 === index && 'selected'}`}
               key={index}
             >
-              <div onClick={() => clickMorningHandler(index)}>{t}</div>
+              <div onClick={() => clickMorningHandler(index)} className='time'>
+                {t}
+              </div>
             </div>
           ))}
         </div>
@@ -141,7 +142,9 @@ const PickSlot = (props) => {
               className={`box box-day ${time2 === index && 'selected'}`}
               key={index}
             >
-              <div onClick={() => clickNoonHandler(index)}>{t}</div>
+              <div className='time' onClick={() => clickNoonHandler(index)}>
+                {t}
+              </div>
             </div>
           ))}
         </div>

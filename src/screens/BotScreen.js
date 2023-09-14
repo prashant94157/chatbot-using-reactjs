@@ -6,13 +6,13 @@ import ActionProvider from '../bot/ActionProvider';
 
 const Bot = () => {
   return (
-    <>
+    <div className='app'>
       <Chatbot
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
-    </>
+    </div>
   );
 };
 

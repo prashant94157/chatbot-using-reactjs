@@ -2,7 +2,9 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 import StartBtn from '../components/StartBtn';
 import GotIt from '../components/GotIt';
 import PickSlot from '../components/PickSlot';
-import BookedSlot from '../components/BookedSlot';
+import Name from '../components/Name';
+import Age from '../components/Age';
+import ExitScreen from '../components/ExitScreen';
 
 const botName = 'Siri';
 
@@ -31,9 +33,17 @@ const config = {
       widgetFunc: (props) => <PickSlot {...props} />,
     },
     {
-      widgetName: 'bookedSlot',
-      widgetFunc: (props) => <BookedSlot {...props} />
-    }
+      widgetName: 'name',
+      widgetFunc: (props) => <Name {...props} />,
+    },
+    {
+      widgetName: 'age',
+      widgetFunc: (props) => <Age {...props} />,
+    },
+    {
+      widgetName: 'exitScreen',
+      widgetFunc: (props) => <ExitScreen {...props} />,
+    },
   ],
 };
 

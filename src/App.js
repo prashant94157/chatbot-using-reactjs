@@ -1,13 +1,21 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import 'react-chatbot-kit/build/main.css';
 import './App.css';
-import Bot from './components/Bot';
+import BotScreen from './screens/BotScreen';
+import UserDataScreen from './screens/UserDataScreen';
+import NotFoundScreen from './screens/NotFoundScreen';
 
 const App = () => {
   return (
-    <div className='app'>
-      <Bot />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/user' element={<UserDataScreen />} />
+        <Route path='/' element={<BotScreen />} />
+        <Route path='/*' element={<NotFoundScreen />} />
+      </Routes>
+    </Router>
   );
 };
 

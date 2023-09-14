@@ -1,4 +1,5 @@
 import React from 'react';
+import { createClientMessage } from 'react-chatbot-kit';
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const startBtnHandler = () => {
@@ -13,34 +14,79 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const gotItHandler = () => {
-    const botMessage = createChatBotMessage(`Got it!`);
+    const botMessage = createClientMessage(`Got it!`);
 
-    removeAllMessages(botMessage);
+    addNewMessage(botMessage);
     pickSlotHandler();
   };
 
   const pickSlotHandler = () => {
     const botMessage = createChatBotMessage('Pick a Date', {
       widget: 'pickSlot',
-      delay: 3000,
     });
 
     addNewMessage(botMessage);
   };
 
-  const bookSlotHandler = () => {
-    const botMessage = createChatBotMessage('Booked slot successfully!!!', {
-      widget: 'bookedSlot',
+  const bookSlotHandler = (date, time) => {
+    const botMessage = createClientMessage(`${date.date}, ${date.day} ${time}`);
+    addNewMessage(botMessage);
+
+    nameHandler();
+  };
+
+  const nameHandler = () => {
+    const botMessage = createChatBotMessage('Enter your Name', {
+      widget: 'name',
     });
 
-    removeAllMessages(botMessage);
+    addNewMessage(botMessage);
+  };
+
+  const submitNameHandler = (name) => {
+    const botMessage = createClientMessage(`${name}`);
+    addNewMessage(botMessage);
+
+    ageHandler();
+  };
+
+  const ageHandler = () => {
+    const botMessage = createChatBotMessage('Enter your Age', {
+      widget: 'age',
+    });
+
+    addNewMessage(botMessage);
+  };
+
+  const submitAgeHandler = (age) => {
+    const botMessage = createClientMessage(`${age} years`);
+    addNewMessage(botMessage);
+
+    exitMessageHandler();
+  };
+
+  const exitMessageHandler = () => {
+    const botMessage = createChatBotMessage(
+      'Thank you. In 5 seconds, bot will exit',
+      {
+        widget: 'exitScreen',
+      }
+    );
+
+    addNewMessage(botMessage);
   };
 
   const addNewMessage = (message) => {
-    setState((prev) => ({
-      ...prev,
-      messages: [...prev.messages, message],
-    }));
+    setState((prev) => {
+      prev.messages.map((i) => {
+        delete i.widget;
+        return i;
+      });
+      return {
+        ...prev,
+        messages: [...prev.messages, message],
+      };
+    });
   };
 
   const removeAllMessages = (message) => {
@@ -58,6 +104,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             startBtnHandler,
             gotItHandler,
             bookSlotHandler,
+            submitNameHandler,
+            submitAgeHandler,
           },
         });
       })}
