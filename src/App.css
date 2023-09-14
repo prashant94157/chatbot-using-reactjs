@@ -71,13 +71,14 @@ body {
 
 .start-btn {
   padding: 5px;
-  background-color: #2898ec;
+  background-color: #aee2ff;
   border-radius: 8px;
 }
 
 .start-btn:hover {
   cursor: pointer;
-  background-color: #aee2ff;
+  background-color: #19a7ce;
+  color: whitesmoke;
 }
 
 .date-picker {
@@ -94,7 +95,7 @@ body {
   border-radius: 50%;
   padding: 2px 6px;
   font-weight: 900;
-  color: #2898ec;
+  color: #aee2ff;
   font-size: 17px;
 }
 
@@ -173,12 +174,13 @@ body {
   margin-top: 10px;
   padding: 5px;
   border-radius: 10px;
-  background-color: #19a7ce;
+  background-color: #aee2ff;
 }
 
 .submit:hover {
   cursor: pointer;
-  background-color: #aee2ff;
+  background-color: #19a7ce;
+  color: whitesmoke;
 }
 
 .react-chatbot-kit-chat-input-container {
